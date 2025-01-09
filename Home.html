@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="Home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+<nav>
+    <p class="Opis_ikone">Clickhouse</p>
+    <a href="#second" id="Clickhouse-tablica"><i class="far fa-file"></i></a>
+    <p class="Opis_ikone">Oracle</p>
+    <a href="#third" id="Oracle-tablica"><i class="far fa-file"></i></a>
+    <p class="Opis_ikone">Korisnici</p>
+    <a href="#first" id="dohvacanje_korisnika"><i class="far fa-user"></i></a>
+    <p class="Opis_ikone">Opis korisnika</p>
+    <a href="#fourth" id="detaljiKorisnika"><i class="far fa-address-card"></i></a>
+</nav>
+
+<div id="welcome">Dobrodošli</div>
+
+<div class= 'container'>
+    <section id ='first'>
+        <h1>Korisnici</h1>
+        <div id="button">
+            <button id="dodaj">Dodaj</button>
+        </div>
+        <div id="table-container" class="tablica-konteiner">
+            <table id="Tablica"  class="tablica">
+                <thead>
+                <tr>
+                    <th id="id">ID</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Korisničko ime</th>
+                    <th>Tip korisnika</th>
+                    <th id="actions-header"> </th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+            <div id="table-container3" class="tablica-konteiner">
+                <table id="Tablica3"  class="tablica">
+                    <thead>
+                    <tr>
+                        <th id="id2">ID</th>
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>Korisničko ime</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+        </div>
+    </section>
+
+    <section id= 'second'>
+        <h1 id="naslov-clickhouse"></h1>
+        <div id="buttonsClickHouse">
+            <label id="tip_prikaza">Tip prikaza:</label>
+            <select id="ClickhouseSelect">
+                <option value="ispisProdaja" selected >Detaljni prikaz</option>
+                <option value="grupirajPoslovniceProdaja">Grupiraj po poslovnici</option>
+                <option value="grupirajArtikleProdaja">Grupiraj po artiklu</option>
+            </select>
+            <button id="FilterPoDatumuClickhouse">Filtriraj po datumu</button>
+            <button id="Prikazi">Prikaži</button>
+        </div>
+        <div id="table-containerClickHouse" class="tablica-konteiner">
+            <table id="TablicaClickHouse"   class="tablica">
+                <thead>
+                <tr>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="Informacije_o_transakciji_ClickHouse">
+            <label>Broj dohvaćenih podataka: </label>
+            <input id="br_podataka_clickhouse" value="" readonly>
+            <label>Vrijeme trajanja upita: </label>
+            <input id="Vrijeme_transakcije_clickhouse" value="" readonly>
+            <label>Ukupan broj podataka za upit:</label>
+            <input id="Ukupan_broj_podataka_clickhouse" value="" readonly>
+        </div>
+        <div id="pagination">
+            <button id="prevButtonClickhouse">← Prethodna</button>
+            <span id="currentPage">Stranica 1</span>
+            <button id="nextButtonClickhouse">Sljedeća →</button>
+        </div>
+    </section>
+
+    <section id= 'third'>
+        <h1 id="naslov-oracle"></h1>
+        <div id="buttonsOracle">
+            <label id="tip_prikazaOracle">Tip prikaza:</label>
+            <select id="OracleSelect">
+                <option value="ispisProdaja" selected >Detaljni prikaz</option>
+                <option value="grupirajPoslovniceProdajaOracle">Grupiraj po poslovnici</option>
+                <option value="grupirajArtikleProdajaOracle">Grupiraj po artiklu</option>
+            </select>
+            <button id="FilterPoDatumuOracle">Filtriraj po datumu</button>
+            <button id="PrikaziOracle">Prikaži</button>
+
+        </div>
+        <div id="table-container2" class="tablica-konteiner">
+            <table id="Tablica2"   class="tablica">
+                <thead>
+                <tr>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div id="Informacije_o_transakciji_Oracle">
+            <label>Broj dohvaćenih podataka: </label>
+            <input id="br_podataka_Oracle" value="" readonly>
+            <label>Vrijeme trajanja upita: </label>
+            <input id="Vrijeme_transakcije_Oracle" value="" readonly>
+            <label>Ukupan broj podataka za upit:</label>
+            <input id="Ukupan_broj_podataka_oracle" value="" readonly>
+        </div>
+        <div id="paginationOracle">
+            <button id="prevButtonOracle">← Prethodna</button>
+            <span id="currentPageOracle">Stranica 1</span>
+            <button id="nextButtonOracle">Sljedeća →</button>
+        </div>
+    </section>
+
+    <section id= 'fourth'>
+        <h1>O korisniku</h1>
+        <div class="modern-container">
+            <table class="modern-table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Korisničko ime</th>
+                    <th>Tip korisnika</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td id="korisnikId"></td>
+                    <td id="korisnikIme"></td>
+                    <td id="korisnikPrezime"></td>
+                    <td id="korisnikUsername"></td>
+                    <td id="tipKorisnika"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button id="odjava">Odjava</button>
+            <button id="promjeni">Promjeni</button>
+        </div>
+    </section>
+
+
+    <div id="popupForm" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn" class="close-btn">&times;</span>
+            <h2>Registracija</h2>
+            <form action="#" method="POST">
+                <label for="ime">Ime:</label>
+                <input type="text" id="ime" name="ime" required><br><br>
+
+                <label for="prezime">Prezime:</label>
+                <input type="text" id="prezime" name="prezime" required><br><br>
+
+                <label for="username">Korisničko ime:</label>
+                <input type="text" id="username" name="username" required><br><br>
+
+
+                <label for="password">Lozinka:</label>
+                <input type="password" id="password" name="password" required><br><br>
+
+                <label for="role">Tip korisnika:</label>
+                <select id="role" name="role">
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
+                <input type="submit" id="submit" value="Kreiraj korisnika">
+            </form>
+        </div>
+    </div>
+
+    <div id="EditpopupForm" class="popup">
+        <div class="popup-content">
+            <span id="closeBtnEdit" class="close-btn">&times;</span>
+            <h2>Promjena vrijednosti</h2>
+           <form action="#" method="POST">
+                <label for="Eime">Ime:</label>
+                <input type="text" id="Eime" name="Eime" required><br><br>
+
+                <label for="Eprezime">Prezime:</label>
+                <input type="text" id="Eprezime" name="Eprezime" required><br><br>
+
+                <label for="Eusername">Username:</label>
+                <input type="text" id="Eusername" name="Eusername" required><br><br>
+
+               <label for="Erole">Tip korisnika:</label>
+                <select id="Erole" name="role">
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
+                <input type="submit" id="Esubmit" value="Promijeni">
+            </form>
+        </div>
+    </div>
+    <div id="EditpopupForm2" class="popup">
+        <div class="popup-content">
+            <span id="closeBtnEdit3" class="close-btn">&times;</span>
+            <h2>Promjena vrijednosti</h2>
+            <form action="#" method="POST">
+                <label for="Eime">Ime:</label>
+                <input type="text" id="Eime2" name="Eime" required><br><br>
+
+                <label for="Eprezime">Prezime:</label>
+                <input type="text" id="Eprezime2" name="Eprezime" required><br><br>
+
+                <label for="Eusername">Username:</label>
+                <input type="text" id="Eusername2" name="Eusername" required><br><br>
+
+                <input type="submit" id="Esubmit2" value="Promijeni">
+            </form>
+        </div>
+    </div>
+    <div id="popupMessage" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn2" class="close-btn">&times;</span>
+            <h2>Uspješno unesen korisnik</h2>
+            <input type="submit" id="ok"  class="gumb" value ="ok">
+        </div>
+    </div>
+
+    <div id="popupMessageError" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn3" class="close-btn">&times;</span>
+            <h2>Korisnik već postoji u bazi!</h2>
+            <input type="submit" id="ok2" class="gumb" value ="ok">
+        </div>
+    </div>
+
+    <div id="DeleteMessageSucces" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn4" class="close-btn">&times;</span>
+            <h2>Uspješno obrisan korisnik!</h2>
+            <input type="submit" id="ok3" class="gumb"value ="ok">
+        </div>
+    </div>
+    <div id="DeleteMessage" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn5" class="close-btn">&times;</span>
+            <h2>Sigurno želite obrisati korisnika?</h2>
+            <input type="submit" id="da" class="gumb"value ="DA">
+        </div>
+    </div>
+    <div id="DeleteMessageError" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn6" class="close-btn">&times;</span>
+            <h2>Greška prilikom brisanja korisnika.</h2>
+            <input type="submit" id="ok4" class="gumb"value ="DA">
+        </div>
+    </div>
+    <div id="UpdateMessage" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn7" class="close-btn">&times;</span>
+            <h2>Uspješno promjenjene vrijednosti</h2>
+            <input type="submit" id="ok5"  class="gumb" value ="ok">
+        </div>
+    </div>
+    <div id="NoDeleteMessage" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn8" class="close-btn">&times;</span>
+            <h2>Ne možete obrisati korisnika koji je trenutno prijavljen</h2>
+            <input type="submit" id="ok6"  class="gumb" value ="ok">
+        </div>
+    </div>
+    <div id="NoDate" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn10" class="close-btn">&times;</span>
+            <h2>Nema zapisa za odabrani datum</h2>
+            <input type="submit" id="ok7"  class="gumb" value ="ok">
+        </div>
+    </div>
+    <div id="NoUser" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn11" class="close-btn">&times;</span>
+            <h2>Nema zapisa za odabrani datum</h2>
+            <input type="submit" id="ok8"  class="gumb" value ="ok">
+        </div>
+    </div>
+    <div id="WrongDate" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn13" class="close-btn">&times;</span>
+            <h2>Neispravan datum</h2>
+            <input type="submit" id="ok9"  class="gumb" value ="ok">
+        </div>
+    </div>
+    <div id="NoData" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn14" class="close-btn">&times;</span>
+            <h2>Nema traženih podataka</h2>
+            <input type="submit" id="ok10"  class="gumb" value ="ok">
+        </div>
+    </div>
+    <div id="filterPodataka" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn9" class="close-btn">&times;</span>
+            <h2>Filtriranje podataka</h2>
+
+                <label for="OdDatum">Od datuma:</label>
+                <input type="date" id="OdDatum" required><br><br>
+                <label for="DoDatuma">Do datuma:</label>
+                <input type="date" id="DoDatuma" required><br><br>
+                <input type="submit" id="filtriranje"  class="gumb" value ="Filtriraj">
+        </div>
+    </div>
+    <div id="filterPodatakaClickHouse" class="popup">
+        <div class="popup-content">
+            <span id="closeBtn12" class="close-btn">&times;</span>
+            <h2>Filtriranje podataka</h2>
+            <label for="OdDatum">Od datuma:</label>
+            <input type="date" id="OdDatumClickHouse" required><br><br>
+            <label for="DoDatuma">Do datuma:</label>
+            <input type="date" id="DoDatumaClickHouse" required><br><br>
+            <input type="submit" id="filtriranjeClickHouse"  class="gumb" value ="Filtriraj">
+        </div>
+    </div>
+    <div id="spinnerContainer" class="spinner-container">
+        <div class="spinner"></div>
+        <p class="loading-text">Dohvaćanje podataka...</p>
+    </div>
+</div>
+<script src="Home.js"></script>
+</body>
+</html>

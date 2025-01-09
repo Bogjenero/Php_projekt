@@ -1,0 +1,780 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+#welcome {
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 40px 60px;
+    background: linear-gradient(45deg, #D96AA7, #422C73);
+    border-radius: 30px;
+
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    height: auto;
+}
+
+#welcome:hover {
+    color: #F2E527;
+    background: linear-gradient(45deg, #F2E527, #88BFB5);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+:root {
+    --primary-color: #8A2BE2;
+    --secondary-color: #422C73;
+    --complimentary-color: #88BFB5;
+    --contrast-color: #F2E527;
+    --light-color: #D2A9D9;
+}
+
+nav a {
+    font-size: 40px;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100vh;
+    background: var(--secondary-color);
+
+}
+
+section {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 0;
+    opacity: 0;
+    transition: all ease-in .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section h1 {
+    color: #fff;
+    font-size: 50px;
+    text-transform: uppercase;
+    opacity: 0;
+}
+#pagination {
+    font-size: 20px;
+    display: none;
+    margin-bottom: 85px;
+}
+#prevButtonClickhouse{
+    margin-right: 10px;
+}
+#nextButtonClickhouse{
+    margin-left: 10px;
+}
+
+#nextButtonClickhouse:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+#prevButtonClickhouse:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+#nextButtonOracle:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+#prevButtonOracle:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+#ClickhouseSelect{
+    margin-top: 50px;
+    width: 285px;
+    height:70px;
+    font-size: 25px;
+}
+
+#OracleSelect{
+    margin-top: 50px;
+    width: 285px;
+    height:70px;
+    font-size: 25px;
+}
+#currentPage{
+    margin-right: -12px;
+    margin-left: 57px;
+    text-align: justify;
+}
+#paginationOracle {
+    display: none;
+}
+#prevButtonOracle{
+    margin-right: 40px;
+}
+#nextButtonOracle{
+    margin-left: 10px;
+}
+#currentPageOracle{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+section:target {
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+section:target h1 {
+    opacity: 0;
+    animation: 2s fadeIn forwards .5s;
+}
+#button{
+    justify-items: start;
+    margin-right: 800px;
+    margin-bottom: 10px;
+}
+
+#first {
+    background:var(--primary-color);
+}
+#second {
+    background:var(--primary-color)
+}
+
+#third {
+    background:var(--primary-color)
+}
+
+#fourth {
+    background:var(--primary-color)
+}
+
+@keyframes fadeIn {
+    100% { opacity:1 }
+}
+.gumb {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+#dodaj{
+    left:-500px;
+}
+.gumb {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.gumb{
+    outline: none;
+    box-shadow: 0 0 8px rgba(72, 186, 72, 0.8);
+}
+.tablica-konteiner {
+    height: 680px;
+    width: 2000px;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+
+}
+.tablica {
+     position: relative;
+     table-layout: fixed;
+     width: 100%;
+     max-width: 2500px;
+     height:680px;
+     border-collapse: collapse;
+     background-color: #fff;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     overflow-x: hidden;
+}
+.tablica thead {
+    position: sticky;
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    top: 0;
+    z-index: 1;
+}
+
+.tablica th {
+    position: sticky;
+    padding: 7px 9px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100px;
+}
+th#id {
+    width: 30px;
+}
+
+.tablica tbody {
+    background-color: #f9f9f9;
+    max-height: 150px;
+
+}
+.tablica td {
+    padding: 7px 9px;
+    text-align: left;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    width:500px;
+    height:55px;
+}
+#Tablica th{
+    padding: 0px 125px 20px 113px;
+}
+#Tablica tr {
+    height: 50px;
+}
+#actions-header {
+    background-color: var(--secondary-color);
+    width: 250px;
+    text-align: center;
+}
+#actions-column {
+    background-color: white;
+    width: 200px;
+    text-align: left;
+}
+button.delete-btn:hover {
+    background-color: darkred;
+}
+
+button.edit-btn:hover {
+    background-color: darkorange;
+}
+#Informacije_o_transakciji_ClickHouse{
+    display: none;
+    margin-top: 15px;
+    margin-left: 1040px;
+    font-size:20px;
+}
+
+
+#br_podataka_clickhouse{
+    font-size: 15px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    width: 40px;
+
+}
+#br_podataka_clickhouse:focus{
+    outline: none;
+    border-color: #888;
+}
+#Ukupan_broj_podataka_clickhouse{
+    font-size: 15px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    width: 73px;
+}
+#Ukupan_broj_podataka_oracle{
+    font-size: 15px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    width: 73px;
+}
+
+
+#Vrijeme_transakcije_clickhouse{
+    font-size: 15px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    width: 47px;
+}
+#Vrijeme_transakcije_clickhouse:focus{
+    outline: none;
+    border-color: #888;
+}
+
+#Informacije_o_transakciji_Oracle{
+    display: none;
+    margin-top: 15px;
+    margin-left: 1040px;
+    font-size:20px;
+}
+
+
+#br_podataka_Oracle{
+    font-size: 15px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    width: 40px;
+
+}
+#br_podataka_Oracle:focus{
+    outline: none;
+    border-color: #888;
+}
+
+
+
+#Vrijeme_transakcije_Oracle{
+    font-size: 15px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    width: 45px;
+}
+#Vrijeme_transakcije_Oracle:focus{
+    outline: none;
+    border-color: #888;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    font-family: Montserrat, sans-serif;
+    padding: 0 20px;
+    margin-top: -20px;
+    overflow: hidden;
+    height:300px;
+}
+section button {
+    position: relative;
+    left: 40px;
+    top: 5px;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height:70px;
+    width:200px;
+    font-size:25px;
+}
+
+section button:hover {
+    background-color: var(--complimentary-color);
+}
+section#third{
+    display: flex;
+    flex-direction: column;
+}
+section#second{
+    display: flex;
+    flex-direction: column;
+}
+section#second h1 {
+    font-size: 70px;
+    color: #333;
+}
+#buttons {
+    justify-items: start;
+    margin-right: 690px;
+    margin-bottom: 10px;
+}
+#tip_prikaza{
+    white-space: nowrap;
+    margin-right: 10px;
+    font-size: 30px;
+}
+#tip_prikazaOracle{
+    white-space: nowrap;
+    margin-right: 10px;
+    font-size: 30px;
+}
+#Prikazi{
+    height:70px;
+    width:200px;
+    font-size: 25px;
+    white-space: nowrap;
+}
+#FilterPoDatumuClickhouse{
+    height:70px;
+    width:250px;
+    font-size: 25px;
+    white-space: nowrap;
+}
+#FilterPoDatumuOracle{
+    height:70px;
+    width:250px;
+    font-size: 25px;
+    white-space: nowrap;
+}
+#buttonsClickHouse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -1075px;
+    margin-top: 80px;
+
+}
+
+#buttonsOracle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    left: -100px;
+    margin-left: -1075px;
+    margin-top: 80px;
+}
+section#first h1 {
+
+    margin-left: -30px;
+    color: #333;
+}
+section#first{
+    display: flex;
+    flex-direction: column;
+}
+section#third h1 {
+    margin-top: -100px;
+    color: #333;
+}
+section#fourth{
+    display: flex;
+    flex-direction: column;
+}
+section#fourth h1 {
+    margin-top: -400px;
+    margin-left: 126px;
+    color: #333;
+    }
+.modern-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 720px;
+}
+.modern-table {
+    width: 100%;
+    margin-left: 20%;
+    max-width: 900px;
+    border-collapse: collapse;
+}
+.modern-table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 20px;
+    text-align: center;
+}
+.modern-table td {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    color: #333;
+}
+.popup-content {
+    text-align: center  ;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+form input[type="text"],
+form input[type="password"] {
+    width: 250px!important;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 10px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #3498db;
+}
+form input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+form input[type="submit"]:active {
+    background-color: #1c638b;
+}
+
+.Opis_ikone{
+    margin-bottom: -213px;
+    text-align: center;
+    font-size:30px;
+}
+
+.spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    font-size:35px;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    animation: spin 1.5s linear infinite;
+    font-size: 70px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: white;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+body.blocked {
+    pointer-events: none;
+    opacity: 0.5;
+}
+form label {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+select {
+    margin-bottom: 50px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+select:hover {
+    border-color: #007BFF;
+}
+
+.popup h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+#WrongDate{
+    display:none;
+    z-index:9999;
+}
+#NoData{
+    display:none;
+    z-index:9999;
+}
+
+
+@media (max-width: 2000px) {
+    #Tablica th{
+        padding: 0px 15px 20px 13px;
+    }
+    #Tablica tr {
+        height: 20px;
+    }
+    .modern-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin-left: 390px;
+    }
+
+    .tablica-konteiner {
+        height: 500px ;
+        width: 1300px ;
+        overflow-x: hidden;
+        border: 1px solid #ccc;
+
+    }
+    .tablica {
+        position: relative;
+        table-layout: fixed;
+        width: 100%;
+        max-width: 1300px;
+        height:500px;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow-x: hidden;
+    }
+    .tablica thead {
+        position: sticky;
+        background-color: var(--secondary-color);
+        color: white;
+        text-align: center;
+        top: 0;
+        z-index: 1;
+    }
+
+    .tablica th {
+        position: sticky;
+        padding: 7px 9px;
+        font-size: 16px;
+        font-weight: bold;
+        height: 30px;
+        width: 150px;
+    }
+    th#id {
+        width: 30px;
+    }
+
+    .tablica tbody {
+        background-color: #f9f9f9;
+        max-height: 30px;
+        width: 50px;
+    }
+    .tablica td {
+        padding: 7px 9px;
+        text-align: left;
+        border: 1px solid #ddd;
+        word-wrap: break-word;
+        width:500px;
+        height:30px;
+    }
+    #Informacije_o_transakciji_ClickHouse{
+        display: none;
+        margin-top: 5px;
+        margin-left: 342px;
+        font-size:20px;
+    }
+    #br_podataka_clickhouse{
+        font-size: 15px;
+        padding: 5px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: #555;
+        width: 40px;
+
+    }
+    #br_podataka_clickhouse:focus{
+        outline: none;
+        border-color: #888;
+    }
+    #buttonsClickHouse {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: -360px;
+        margin-top: 80px;
+    }
+    section#second h1 {
+        font-size: 50px;
+        color: #333;
+        margin-top: 50px;
+    }
+    .Opis_ikone{
+        margin-bottom: -50px;
+        text-align: center;
+        font-size:30px;
+    }
+    #Informacije_o_transakciji_Oracle{
+        display: none;
+        margin-top: 15px;
+        margin-left: 342px;
+        font-size:20px;
+    }
+    #buttonsOracle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        left: -100px;
+        margin-left: -372px;
+        margin-top: 80px;
+    }
+    section#third h1 {
+        margin-top: 50px;
+        color: #333;
+    }
+    #paginationOracle {
+        display: none;
+        margin-bottom: 50px;
+    }
+    #pagination{
+        display: none;
+        margin-bottom: 50px;
+    }
+    #button{
+        justify-items: start;
+        margin-right: 485px;
+        margin-bottom: 10px;
+    }
+    #dodaj{
+        left:-310px;
+    }
+}
