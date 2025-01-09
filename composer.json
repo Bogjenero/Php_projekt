@@ -1,0 +1,10 @@
+{
+  "name": "mojkorisnik/mojprojekat",
+  "description": "Opis vašeg projekta",
+  "require": {
+    "php": "^8.3.11",
+    "smi2/phpclickhouse": "^1.5",
+    "ext-oci8": "*",
+    "ext-openssl": "*"
+  }
+}
